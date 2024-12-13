@@ -2,31 +2,45 @@ package conta;
 
 import java.util.Scanner;
 import conta.model.Conta;
+import conta.model.ContaCorrente;
 import conta.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
-		
+
 		// Instanciamento | Classe -> Objeto Utilizável
-		Conta c1 = new Conta(123456, 0001, 1, "Maria das Neves", 1000f);
-		c1.visualizar();
-		c1.sacar(12000.0f);
-		c1.visualizar();
-		c1.depositar(5000.0f);
-		c1.visualizar();
-		
+		// Teste da classe conta
+		// Conta cc1 = new ContaCorrente(123456, 0001, 1, "Maria das Neves", 1000f);
+		// cc1.visualizar();
+		/*
+		 * c1.sacar(12000.0f); c1.visualizar(); c1.depositar(5000.0f); c1.visualizar();
+		 */
+
+		// Teste da classe conta corrente
+		ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Mariana", 1500.0f, 1000.0f);
+		cc1.visualizar();
+		cc1.sacar(1200f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+
+		// Teste da classe conta poupanca
+		// Instanciamento/ Instancia da xlasse COntaCorrente xom limite fixo
+		ContaCorrente cp1 = new ContaCorrente(3, 123, 2, "Victor", 100000.0f, 15);
+		cp1.visualizar();
+		cp1.sacar(1000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
+
 		Scanner leia = new Scanner(System.in);
-		
-		System.out.println("Titular: " + c1.getTitular());
-		System.out.println("Saldo: " + c1.getSaldo());
-		
 		int opcao;
-		
+
 		while (true) {
-			
+
 			System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
-					+"*********************************************************");
+					+ "*********************************************************");
 			System.out.println("                                                         ");
 			System.out.println("                   BANCO DO BRASIL COM Z                 ");
 			System.out.println("                                                         ");
@@ -44,60 +58,61 @@ public class Menu {
 			System.out.println("*********************************************************");
 			System.out.println("Entre com a opção desejada:                              ");
 			System.out.println("                                                         " + Cores.TEXT_RESET);
-			
+
 			opcao = leia.nextInt();
-			
+
 			if (opcao == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brasil com Z - O seu futuro começa aqui!");
 				sobre();
 				leia.close();
 				System.exit(0);
 			}
-			
+
 			switch (opcao) {
-			case 1 : 
+			case 1:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Criar Conta \n\n");
-				
+
 				break;
-			case 2 : 
+			case 2:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Listar todas as Contas \n\n");
-			
+
 				break;
-			case 3 : 
+			case 3:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Consultar dados da Conta - por número\n\n");
-				
+
 				break;
-			case 4: 
+			case 4:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Atualizar dados da Conta\n\n");
-				
+
 				break;
-			case 5: 
+			case 5:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Apagar a Conta\n\n");
-				
+
 				break;
-			case 6 :
+			case 6:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Saque\n\n");
-			
+
 				break;
-			case 7 :
+			case 7:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Depósito");
-				
+
 				break;
-			case 8 :
+			case 8:
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Transferência entre Contas\n\n");
-				
+
 				break;
-			default :
-				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção inválida\n"+ Cores.TEXT_RESET);
+			default:
+				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção inválida\n" + Cores.TEXT_RESET);
 				break;
 			}
 		}
 	}
-	public static void sobre () {
+
+	public static void sobre() {
 		System.out.println("\n*********************************************************");
 		System.out.println("Projeto desenvolvido por: ");
 		System.out.println("Jaime Filho - jaimebrancofilho@gmail.com");
-		System.out.println("https://github.com/jaimebranco?tab=repositories");		
+		System.out.println("https://github.com/jaimebranco?tab=repositories");
 		System.out.println("*********************************************************");
-			}
+	}
 }
